@@ -20,10 +20,10 @@ RUN CGO_ENABLED=1 go build -ldflags="-s -w -linkmode external -extldflags '-stat
 
 FROM alpine:latest
 
-LABEL org.opencontainers.image.title="rsslay"
+LABEL org.opencontainers.image.title="Plato Relay"
 LABEL org.opencontainers.image.source=https://github.com/piraces/rsslay
-LABEL org.opencontainers.image.description="rsslay turns RSS or Atom feeds into Nostr profiles"
-LABEL org.opencontainers.image.authors="Raúl Piracés"
+LABEL org.opencontainers.image.description="Plato Relay turns Platos RSS or feeds into Nostr profiles"
+LABEL org.opencontainers.image.authors="James Andrew"
 LABEL org.opencontainers.image.licenses=MIT
 
 ENV PORT="8080"
