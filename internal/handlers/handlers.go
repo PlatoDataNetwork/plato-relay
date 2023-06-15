@@ -3,6 +3,14 @@ package handlers
 import (
 	"database/sql"
 	"encoding/json"
+	"html/template"
+	"log"
+	"net/http"
+	"net/url"
+	"os"
+	"path/filepath"
+	"strings"
+
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/nbd-wtf/go-nostr"
 	"github.com/nbd-wtf/go-nostr/nip05"
@@ -12,13 +20,6 @@ import (
 	"github.com/piraces/rsslay/pkg/metrics"
 	"github.com/piraces/rsslay/web/templates"
 	"github.com/prometheus/client_golang/prometheus"
-	"html/template"
-	"log"
-	"net/http"
-	"net/url"
-	"os"
-	"path/filepath"
-	"strings"
 )
 
 var t = template.Must(template.ParseFS(templates.Templates, "*.tmpl"))
@@ -293,7 +294,7 @@ func insertFeed(err error, feedUrl string, publicKey string, sk string, nitter b
 	err = row.Scan(&entity.PrivateKey, &entity.URL)
 	if err != nil && err == sql.ErrNoRows {
 		log.Printf("[DEBUG] not found feed at url %q as publicKey %s", feedUrl, publicKey)
-		if _, err := db.Exec(`INSERT INTO feeds (publickey, privatekey, url, nitter) VALUES (?, ?, ?, ?)`, publicKey, sk, feedUrl, nitter); err != nil {
+		if _, err := db.Exec(`INSERT INTO feeds (publickey, privatekey, url, nitter) VALUES ($1, $2, $3, $4)`, publicKey, sk, feedUrl, nitter); err != nil {
 			log.Printf("[ERROR] failure: %v", err)
 			metrics.AppErrors.With(prometheus.Labels{"type": "SQL_WRITE"}).Inc()
 		} else {
