@@ -7,12 +7,20 @@ import (
 	"errors"
 	"flag"
 	"fmt"
+	"log"
+	"net/http"
+	"os"
+	"path"
+	"sync"
+	"time"
+
 	"github.com/eko/gocache/lib/v4/cache"
 	"github.com/fiatjaf/relayer"
 	_ "github.com/fiatjaf/relayer"
 	"github.com/hashicorp/logutils"
 	"github.com/hellofresh/health-go/v5"
 	"github.com/kelseyhightower/envconfig"
+	_ "github.com/lib/pq"
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/nbd-wtf/go-nostr"
 	"github.com/nbd-wtf/go-nostr/nip11"
@@ -25,12 +33,6 @@ import (
 	"github.com/piraces/rsslay/scripts"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"golang.org/x/exp/slices"
-	"log"
-	"net/http"
-	"os"
-	"path"
-	"sync"
-	"time"
 )
 
 // Command line flags.
@@ -43,6 +45,7 @@ const assetsDir = "/assets/"
 type Relay struct {
 	Secret                          string   `envconfig:"SECRET" required:"true"`
 	DatabaseDirectory               string   `envconfig:"DB_DIR" default:"db/rsslay.sqlite"`
+	DatabaseUrl                     string   `envconfig:"DATABASE_URL" default:""`
 	DefaultProfilePictureUrl        string   `envconfig:"DEFAULT_PROFILE_PICTURE_URL" default:"https://i.imgur.com/MaceU96.png"`
 	Version                         string   `envconfig:"VERSION" default:"unknown"`
 	ReplayToRelays                  bool     `envconfig:"REPLAY_TO_RELAYS" default:"false"`
@@ -356,7 +359,7 @@ func InitDatabase(r *Relay) *sql.DB {
 	}
 
 	// Connect to SQLite database.
-	sqlDb, err := sql.Open("sqlite3", *finalConnection)
+	sqlDb, err := sql.Open("postgres", os.Getenv("DATABASE_URL"))
 	if err != nil {
 		log.Fatalf("[FATAL] open db: %v", err)
 	}
