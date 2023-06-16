@@ -42,7 +42,7 @@ Currently used relays:
 
 This is needed nowadays, with further improvements in relays implementations or clients it may not be needed in the future.
 
-Maybe in the future with other implementations we can avoid that, but nowadays its needed.
+Maybe in the future with other implementations we can avoid that, but nowadays it's needed.
 
 ## Feeds from Twitter via Nitter instances
 
@@ -80,7 +80,7 @@ So with this you can mount your own [Graphana](https://grafana.com/) dashboards 
 
 # Contributing
 
-Feel free to [open an issue](https://github.com/piraces/rsslay/issues/new), provide feedback in [discussions](https://github.com/piraces/rsslay/discussions), or fork the repo and open a PR with your contribution!
+Feel free to [open an issue]([https://github.com/piraces/rsslay](https://github.com/PlatoDataNetwork/plato-relay/issues/new), provide feedback in [discussions]([https://github.com/piraces/rsslay](https://github.com/PlatoDataNetwork/plato-relay/discussions), or fork the repo and open a PR with your contribution!
 
 **All kinds of contributions are welcome!**
 
@@ -88,7 +88,7 @@ Feel free to [open an issue](https://github.com/piraces/rsslay/issues/new), prov
 
 Learn more via [https://platoaistream.com/](https://platoaistream.com/) including regarding Plato's founder Bryan Feinberg.
 
-Also on [the bird site](https://twitter.com/plato_data)
+Also on [Twitter](https://twitter.com/plato_data)
 # License
 
 [Unlicense](https://unlicense.org).
