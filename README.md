@@ -86,10 +86,9 @@ Feel free to [open an issue](https://github.com/piraces/rsslay/issues/new), prov
 
 # Contact
 
-You can reach me on nostr [`npub1ftpy6thgy2354xypal6jd0m37wtsgsvcxljvzje5vskc9cg3a5usexrrtq`](https://snort.social/p/npub1ftpy6thgy2354xypal6jd0m37wtsgsvcxljvzje5vskc9cg3a5usexrrtq)
+Learn more via [https://platoaistream.com/](https://platoaistream.com/) including regarding Plato's founder Bryan Feinberg.
 
-Also on [the bird site](https://twitter.com/piraces_), and [Mastodon](https://hachyderm.io/@piraces).
-
+Also on [the bird site](https://twitter.com/plato_data)
 # License
 
 [Unlicense](https://unlicense.org).
