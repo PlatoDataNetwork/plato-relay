@@ -20,7 +20,7 @@ require (
 	github.com/mmcdole/gofeed v1.2.1
 	github.com/nbd-wtf/go-nostr v0.18.10
 	github.com/prometheus/client_golang v1.16.0
-	github.com/redis/go-redis/v9 v9.0.5
+	github.com/redis/go-redis/v9 v9.1.0
 	github.com/stretchr/testify v1.8.4
 	golang.org/x/exp v0.0.0-20230315142452-642cacee5cc0
 )
